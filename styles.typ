@@ -145,6 +145,24 @@
   ]
 }
 
+// Back side of sheet - rotated 180 degrees for duplex printing
+#let back-spread(left-panel, right-panel) = {
+  page[
+    #box(
+      width: 100%,
+      height: 100%,
+      rotate(180deg,
+        stack(
+          dir: ltr,
+          spacing: 0pt,
+          left-panel,
+          right-panel,
+        )
+      )
+    )
+  ]
+}
+
 // Legacy compatibility functions (create individual pages)
 #let title-page(title, subtitle) = {
   page(

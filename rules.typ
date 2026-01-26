@@ -1,32 +1,30 @@
 // rules.typ
-// All booklet content
+// All booklet content as panels for 2-up layout
 
 #import "styles.typ": *
 
-#let welcome-page = {
-  title-page(
-    [The Little Book of House Rules],
-    [A friendly guide to how public assistance works]
-  )
+#let title-panel-content = title-panel(
+  [The Little Book of House Rules],
+  [A friendly guide to how public assistance works]
+)
 
-  simple-page[
-    = Welcome
+#let welcome-panel = simple-panel[
+  = Welcome
 
-    #v(0.2in)
+  #v(0.2in)
 
-    This system can feel confusing.
+  This system can feel confusing.
 
-    You're not doing anything wrong if it does.
+  You're not doing anything wrong if it does.
 
-    This little book isn't about rules to trip you up.
+  This little book isn't about rules to trip you up.
 
-    It's about how the process works, so there are fewer surprises.
+  It's about how the process works, so there are fewer surprises.
 
-    Think of it as a map, not a test.
-  ]
-}
+  Think of it as a map, not a test.
+]
 
-#let rule-one = rule-page(
+#let rule-one-panel = rule-panel(
   1,
   [Asking for help is allowed],
   [
@@ -40,7 +38,7 @@
   ]
 )
 
-#let rule-two = rule-page(
+#let rule-two-panel = rule-panel(
   2,
   [The process happens in stages],
   [
@@ -66,7 +64,7 @@
   ]
 )
 
-#let rule-three = rule-page(
+#let rule-three-panel = rule-panel(
   3,
   [Paperwork is about clarity, not suspicion],
   [
@@ -88,7 +86,7 @@
   ]
 )
 
-#let rule-four = rule-page(
+#let rule-four-panel = rule-panel(
   4,
   [Life changes, and that's expected],
   [
@@ -108,7 +106,7 @@
   ]
 )
 
-#let rule-five = rule-page(
+#let rule-five-panel = rule-panel(
   5,
   [Deadlines exist, but help still does too],
   [
@@ -132,7 +130,7 @@
   ]
 )
 
-#let rule-six = rule-page(
+#let rule-six-panel = rule-panel(
   6,
   [You don't need to understand every rule],
   [
@@ -162,7 +160,7 @@
   ]
 )
 
-#let rule-seven = rule-page(
+#let rule-seven-panel = rule-panel(
   7,
   [The system moves slower than real life],
   [
@@ -186,7 +184,7 @@
   ]
 )
 
-#let rule-eight = rule-page(
+#let rule-eight-panel = rule-panel(
   8,
   [Confusion is not failure],
   [
@@ -198,7 +196,7 @@
   ]
 )
 
-#let rule-nine = rule-page(
+#let rule-nine-panel = rule-panel(
   9,
   [You are allowed to check in],
   [
@@ -220,7 +218,7 @@
   ]
 )
 
-#let rule-ten = rule-page(
+#let rule-ten-panel = rule-panel(
   10,
   [We are on the same side of the table],
   [
@@ -252,7 +250,7 @@
   ]
 )
 
-#let closing-page = simple-page[
+#let closing-panel = simple-panel[
   = One last thing
 
   #v(0.2in)
@@ -264,7 +262,7 @@
   If you're here, you're already doing the right thing.
 ]
 
-#let contact-page = simple-page[
+#let contact-panel = simple-panel[
   = Need help or have a question?
 
   #v(0.3in)

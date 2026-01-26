@@ -129,6 +129,42 @@
   )
 }
 
+// Create a coloring page spread (full width, for center of booklet)
+#let coloring-spread(image-path) = {
+  page[
+    #box(
+      width: 100%,
+      height: 100%,
+      fill: white,
+      inset: 0.5in,
+      align(center + horizon)[
+        #image(image-path, width: 100%, height: 100%, fit: "contain")
+      ]
+    )
+  ]
+}
+
+// Back side coloring spread (rotated for duplex)
+#let coloring-back-spread(image-path) = {
+  page[
+    #box(
+      width: 100%,
+      height: 100%,
+      fill: white,
+      rotate(180deg,
+        box(
+          width: 11in,
+          height: 8.5in,
+          inset: 0.5in,
+          align(center + horizon)[
+            #image(image-path, width: 100%, height: 100%, fit: "contain")
+          ]
+        )
+      )
+    )
+  ]
+}
+
 // Place two panels side by side on one landscape page
 #let spread(left-panel, right-panel) = {
   page[

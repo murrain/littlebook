@@ -1,9 +1,14 @@
 // styles.typ
 // Layout, typography, and reusable components
+// Two-up layout: two half-pages side by side on landscape letter
+
+// Panel dimensions (half of landscape letter)
+#let panel-width = 5.5in
+#let panel-height = 8.5in
 
 #let book-layout(body) = {
   set page(
-    width: 5.5in,
+    width: 11in,
     height: 8.5in,
     margin: 0pt,
   )
@@ -22,10 +27,13 @@
   body
 }
 
-#let title-page(title, subtitle) = {
-  page(
+// Create a title panel (content block, no page break)
+#let title-panel(title, subtitle) = {
+  box(
+    width: panel-width,
+    height: panel-height,
     fill: rgb("#2c5f7a"),
-    margin: (
+    inset: (
       top: 0.75in,
       bottom: 0.75in,
       left: 0.6in,
@@ -59,12 +67,15 @@
   rgb("#7a8e6b"),  // moss green
 )
 
-#let rule-page(number, title, content) = {
+// Create a rule panel (content block, no page break)
+#let rule-panel(number, title, content) = {
   let bg-color = rule-colors.at(calc.rem(number - 1, rule-colors.len()))
 
-  page(
+  box(
+    width: panel-width,
+    height: panel-height,
     fill: bg-color,
-    margin: (
+    inset: (
       top: 0.75in,
       bottom: 0.75in,
       left: 0.6in,
@@ -90,10 +101,13 @@
   )
 }
 
-#let simple-page(content) = {
-  page(
+// Create a simple panel (content block, no page break)
+#let simple-panel(content) = {
+  box(
+    width: panel-width,
+    height: panel-height,
     fill: rgb("#fcfbf9"),
-    margin: (
+    inset: (
       top: 0.75in,
       bottom: 0.75in,
       left: 0.6in,
@@ -104,4 +118,142 @@
       #content
     ]
   )
+}
+
+// Create a blank panel (for padding when odd number of pages)
+#let blank-panel() = {
+  box(
+    width: panel-width,
+    height: panel-height,
+    fill: white,
+  )
+}
+
+// Place two panels side by side on one landscape page
+#let spread(left-panel, right-panel) = {
+  page[
+    #box(
+      width: 100%,
+      height: 100%,
+      stack(
+        dir: ltr,
+        spacing: 0pt,
+        left-panel,
+        right-panel,
+      )
+    )
+  ]
+}
+
+// Back side of sheet - rotated 180 degrees for duplex printing
+#let back-spread(left-panel, right-panel) = {
+  page[
+    #box(
+      width: 100%,
+      height: 100%,
+      rotate(180deg,
+        stack(
+          dir: ltr,
+          spacing: 0pt,
+          left-panel,
+          right-panel,
+        )
+      )
+    )
+  ]
+}
+
+// Legacy compatibility functions (create individual pages)
+#let title-page(title, subtitle) = {
+  page(
+    width: 5.5in,
+    height: 8.5in,
+    margin: 0pt,
+    fill: rgb("#2c5f7a"),
+  )[
+    #box(
+      width: 100%,
+      height: 100%,
+      inset: (
+        top: 0.75in,
+        bottom: 0.75in,
+        left: 0.6in,
+        right: 0.6in,
+      ),
+      align(center + horizon)[
+        #text(size: 22pt, weight: "semibold", fill: white)[
+          #title
+        ]
+
+        #v(0.5in)
+
+        #text(size: 14pt, style: "italic", fill: white)[
+          #subtitle
+        ]
+      ]
+    )
+  ]
+}
+
+#let rule-page(number, title, content) = {
+  let bg-color = rule-colors.at(calc.rem(number - 1, rule-colors.len()))
+
+  page(
+    width: 5.5in,
+    height: 8.5in,
+    margin: 0pt,
+    fill: bg-color,
+  )[
+    #box(
+      width: 100%,
+      height: 100%,
+      inset: (
+        top: 0.75in,
+        bottom: 0.75in,
+        left: 0.6in,
+        right: 0.6in,
+      ),
+      [
+        #v(0.2in)
+
+        #text(size: 11pt, fill: white.transparentize(30%))[Rule #number]
+
+        #v(0.25in)
+
+        #text(size: 22pt, weight: "bold", fill: white)[
+          #title
+        ]
+
+        #v(0.4in)
+
+        #text(size: 18pt, weight: "medium", fill: white)[
+          #content
+        ]
+      ]
+    )
+  ]
+}
+
+#let simple-page(content) = {
+  page(
+    width: 5.5in,
+    height: 8.5in,
+    margin: 0pt,
+    fill: rgb("#fcfbf9"),
+  )[
+    #box(
+      width: 100%,
+      height: 100%,
+      inset: (
+        top: 0.75in,
+        bottom: 0.75in,
+        left: 0.6in,
+        right: 0.6in,
+      ),
+      [
+        #v(0.3in)
+        #content
+      ]
+    )
+  ]
 }

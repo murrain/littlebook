@@ -1,6 +1,14 @@
 // book.typ
 // Main entry point for "The Little Book of House Rules"
-// Two-up layout: two half-pages side by side per sheet
+// Booklet imposition for saddle-stitch binding
+//
+// Print duplex (short-edge flip), stack sheets, fold in half, nest together.
+// Pages will be in correct reading order (1-14).
+//
+// Page mapping:
+// 1: Title, 2: Welcome, 3: Rule1, 4: Rule2, 5: Rule3, 6: Rule4,
+// 7: Rule5, 8: Rule6, 9: Rule7, 10: Rule8, 11: Rule9, 12: Rule10,
+// 13: Closing, 14: Contact
 
 #import "styles.typ": *
 #import "rules.typ": *
@@ -12,23 +20,26 @@
 
 #show: book-layout
 
-// Spread 1: Title + Welcome
-#spread(title-panel-content, welcome-panel)
+// Sheet 1 (outermost) - front: Contact(14), Title(1)
+#spread(contact-panel, title-panel-content)
 
-// Spread 2: Rules 1 + 2
-#spread(rule-one-panel, rule-two-panel)
+// Sheet 1 (outermost) - back: Welcome(2), Closing(13)
+#spread(welcome-panel, closing-panel)
 
-// Spread 3: Rules 3 + 4
-#spread(rule-three-panel, rule-four-panel)
+// Sheet 2 - front: Rule10(12), Rule1(3)
+#spread(rule-ten-panel, rule-one-panel)
 
-// Spread 4: Rules 5 + 6
-#spread(rule-five-panel, rule-six-panel)
+// Sheet 2 - back: Rule2(4), Rule9(11)
+#spread(rule-two-panel, rule-nine-panel)
 
-// Spread 5: Rules 7 + 8
-#spread(rule-seven-panel, rule-eight-panel)
+// Sheet 3 - front: Rule8(10), Rule3(5)
+#spread(rule-eight-panel, rule-three-panel)
 
-// Spread 6: Rules 9 + 10
-#spread(rule-nine-panel, rule-ten-panel)
+// Sheet 3 - back: Rule4(6), Rule7(9)
+#spread(rule-four-panel, rule-seven-panel)
 
-// Spread 7: Closing + Contact
-#spread(closing-panel, contact-panel)
+// Sheet 4 (innermost) - front: Rule6(8), Rule5(7)
+#spread(rule-six-panel, rule-five-panel)
+
+// Sheet 4 (innermost) - back: blank (for duplex printing consistency)
+#spread(blank-panel(), blank-panel())

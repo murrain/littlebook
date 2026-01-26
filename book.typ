@@ -41,5 +41,5 @@
 // Sheet 4 (innermost) - front: Rule6(8), Rule5(7)
 #spread(rule-six-panel, rule-five-panel)
 
-// Sheet 4 (innermost) - back: blank
-#back-spread(blank-panel(), blank-panel())
+// Sheet 4 (innermost) - back: coloring page spanning both pages
+#coloring-back-spread("coloring-art.svg")

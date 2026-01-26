@@ -2,7 +2,7 @@
 // Main entry point for "The Little Book of House Rules"
 // Booklet imposition for saddle-stitch binding
 //
-// Print duplex (short-edge flip), stack sheets, fold in half, nest together.
+// Print duplex, stack sheets, fold in half, nest together.
 // Pages will be in correct reading order (1-14).
 //
 // Page mapping:
@@ -23,23 +23,23 @@
 // Sheet 1 (outermost) - front: Contact(14), Title(1)
 #spread(contact-panel, title-panel-content)
 
-// Sheet 1 (outermost) - back: Welcome(2), Closing(13)
-#spread(welcome-panel, closing-panel)
+// Sheet 1 (outermost) - back: Closing(13), Welcome(2) [reversed for duplex]
+#spread(closing-panel, welcome-panel)
 
 // Sheet 2 - front: Rule10(12), Rule1(3)
 #spread(rule-ten-panel, rule-one-panel)
 
-// Sheet 2 - back: Rule2(4), Rule9(11)
-#spread(rule-two-panel, rule-nine-panel)
+// Sheet 2 - back: Rule9(11), Rule2(4) [reversed for duplex]
+#spread(rule-nine-panel, rule-two-panel)
 
 // Sheet 3 - front: Rule8(10), Rule3(5)
 #spread(rule-eight-panel, rule-three-panel)
 
-// Sheet 3 - back: Rule4(6), Rule7(9)
-#spread(rule-four-panel, rule-seven-panel)
+// Sheet 3 - back: Rule7(9), Rule4(6) [reversed for duplex]
+#spread(rule-seven-panel, rule-four-panel)
 
 // Sheet 4 (innermost) - front: Rule6(8), Rule5(7)
 #spread(rule-six-panel, rule-five-panel)
 
-// Sheet 4 (innermost) - back: blank (for duplex printing consistency)
+// Sheet 4 (innermost) - back: blank [reversed for duplex]
 #spread(blank-panel(), blank-panel())

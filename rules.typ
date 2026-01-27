@@ -254,6 +254,7 @@
 
 #let closing-panel = simple-panel(
   background-image: "balloon_girl.png",
+  background-dy: 0.75in - 60pt,
 )[
   = One last thing
 

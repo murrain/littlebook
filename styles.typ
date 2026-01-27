@@ -102,7 +102,7 @@
 }
 
 // Create a simple panel (content block, no page break)
-#let simple-panel(content, background-image: none) = {
+#let simple-panel(content, background-image: none, background-dy: 0.75in) = {
   box(
     width: panel-width,
     height: panel-height,
@@ -118,7 +118,7 @@
       #if background-image != none {
         place(
           bottom + left,
-          dy: 0.75in,  // offset to reach the actual bottom of the panel
+          dy: background-dy,  // offset to reach the actual bottom of the panel
           dx: -0.6in,  // offset back to panel edge
           image(background-image, width: panel-width, fit: "contain")
         )

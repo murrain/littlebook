@@ -1,6 +1,6 @@
 // book.typ
 // Main entry point for "The Little Book of House Rules"
-// Sequential page order for digital viewing
+// Sequential page order for digital viewing (two panels per page)
 //
 // Pages in reading order (1-14):
 // 1: Title, 2: Welcome, 3: Rule1, 4: Rule2, 5: Rule3, 6: Rule4,
@@ -17,47 +17,26 @@
 
 #show: book-layout
 
-// Page 1: Title
-#spread(title-panel-content, blank-panel())
+// Pages 1-2: Title, Welcome
+#spread(title-panel-content, welcome-panel)
 
-// Page 2: Welcome
-#spread(welcome-panel, blank-panel())
+// Pages 3-4: Rule 1, Rule 2
+#spread(rule-one-panel, rule-two-panel)
 
-// Page 3: Rule 1
-#spread(rule-one-panel, blank-panel())
+// Pages 5-6: Rule 3, Rule 4
+#spread(rule-three-panel, rule-four-panel)
 
-// Page 4: Rule 2
-#spread(rule-two-panel, blank-panel())
+// Pages 7-8: Rule 5, Rule 6
+#spread(rule-five-panel, rule-six-panel)
 
-// Page 5: Rule 3
-#spread(rule-three-panel, blank-panel())
+// Pages 9-10: Rule 7, Rule 8
+#spread(rule-seven-panel, rule-eight-panel)
 
-// Page 6: Rule 4
-#spread(rule-four-panel, blank-panel())
+// Pages 11-12: Rule 9, Rule 10
+#spread(rule-nine-panel, rule-ten-panel)
 
-// Page 7: Rule 5
-#spread(rule-five-panel, blank-panel())
+// Pages 13-14: Closing, Contact
+#spread(closing-panel, contact-panel)
 
-// Page 8: Rule 6
-#spread(rule-six-panel, blank-panel())
-
-// Page 9: Rule 7
-#spread(rule-seven-panel, blank-panel())
-
-// Page 10: Rule 8
-#spread(rule-eight-panel, blank-panel())
-
-// Page 11: Rule 9
-#spread(rule-nine-panel, blank-panel())
-
-// Page 12: Rule 10
-#spread(rule-ten-panel, blank-panel())
-
-// Page 13: Closing
-#spread(closing-panel, blank-panel())
-
-// Page 14: Contact
-#spread(contact-panel, blank-panel())
-
-// Page 15-16: Coloring page
+// Pages 15-16: Coloring page
 #coloring-spread("coloring-art_t.png")

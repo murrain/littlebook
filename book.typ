@@ -42,4 +42,4 @@
 #spread(rule-six-panel, rule-five-panel)
 
 // Sheet 4 (innermost) - back: coloring page spanning both pages
-#coloring-back-spread("coloring-art.png")
+#coloring-back-spread("coloring-art_t.png")

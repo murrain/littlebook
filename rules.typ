@@ -8,7 +8,9 @@
   [A friendly guide to how public assistance works]
 )
 
-#let welcome-panel = simple-panel[
+#let welcome-panel = simple-panel(
+  background-image: "poppy-flowers-botanical.png",
+)[
   = Welcome
 
   #v(0.2in)
@@ -250,7 +252,9 @@
   ]
 )
 
-#let closing-panel = simple-panel[
+#let closing-panel = simple-panel(
+  background-image: "balloon_girl.png",
+)[
   = One last thing
 
   #v(0.2in)

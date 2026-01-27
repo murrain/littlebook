@@ -117,10 +117,17 @@
       // Place background image if provided
       #if background-image != none {
         place(
-          bottom + center,
+          bottom,
           dy: 0.75in,  // offset to reach the actual bottom of the panel
-          dx: -0.6in,  // offset to align with left edge of panel
-          image(background-image, width: panel-width, fit: "contain")
+          box(
+            width: panel-width,
+            height: panel-height - 1.5in,
+            inset: 0pt,
+            outset: (left: 0.6in, right: 0.6in),
+            align(bottom + center,
+              image(background-image, width: panel-width, fit: "contain")
+            )
+          )
         )
       }
       #v(0.3in)

@@ -134,7 +134,7 @@
 
 #let rule-six-panel = rule-panel(
   6,
-  [You don't need to understand every rule],
+  [You don't need to memorize every rule],
   [
     You don't need to know:
 
